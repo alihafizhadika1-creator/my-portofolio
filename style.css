@@ -927,6 +927,66 @@ display: inline-block;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
+  .story-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #0d120d;
+}
+
+/* VIDEO */
+.story-video {
+  position: relative;
+  overflow: hidden;
+}
+
+/* video */
+.story-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* thumbnail */
+.video-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* overlay */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  background: rgba(0,0,0,0.25);
+  transition: opacity 0.3s ease;
+}
+
+/* HIDDEN STATE */
+.video-overlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-thumb.hide {
+  opacity: 0;
+}
 
   /* ── FOOTER ── */
   footer {
