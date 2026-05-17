@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Recount Text – Nadir</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="stylerec.css">
+</head>
+<body>
+  <!-- NAV TRIGGER ZONE -->
+<div id="nav-trigger"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="../index.html#home" class="logo">AHA</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#work">Work</a></li>
+    <li><a href="../index.html#story">Story</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+  <header>
+    <div class="label">Recount Text</div>
+    <h1>Building My<br/><em>Portfolio Website</em></h1>
+    <p class="byline">Written by Nadir &nbsp;·&nbsp; Last Month</p>
+    <hr class="divider"/>
+  </header>
+
+  <article>
+
+    <!-- Orientation -->
+    <div class="orientation">
+      <p class="section-tag">Orientation</p>
+      <p>
+        Last month, I decided to build my own portfolio website — a place to showcase my work and support
+        my career in school. It was a big goal, and I knew it would take real time and effort. So I committed
+        fully: long hours designing, experimenting, and developing every detail until it felt right.
+      </p>
+    </div>
+
+    <!-- Events -->
+    <div class="events">
+
+      <div class="event" style="--delay: 0.85s">
+        <div class="event-num">
+          <div class="num-circle">01</div>
+          <div class="num-line"></div>
+        </div>
+        <div class="event-body">
+          <h3>Designing in Figma</h3>
+          <p>
+            First of all, I opened Figma and started sketching the layout. I experimented with different
+            color palettes, font choices, and section structures. Designing first helped me have a clear
+            vision before touching a single line of code — it saved me a lot of confusion later.
+          </p>
+        </div>
+      </div>
+
+      <div class="event" style="--delay: 1.0s">
+        <div class="event-num">
+          <div class="num-circle">02</div>
+          <div class="num-line"></div>
+        </div>
+        <div class="event-body">
+          <h3>Writing the Code</h3>
+          <p>
+            Then I moved into development. I wrote the HTML, CSS, and a bit of JavaScript to bring the
+            design to life. This was where I grew the most — every line of code taught me something new.
+            It was exciting to see static mockups transform into a real, interactive website running in
+            the browser.
+          </p>
+        </div>
+      </div>
+
+      <div class="event" style="--delay: 1.15s">
+        <div class="event-num">
+          <div class="num-circle">03</div>
+          <div class="num-line"></div>
+        </div>
+        <div class="event-body">
+          <h3>Facing Errors (and Fixing Them)</h3>
+          <p>
+            Of course, the journey was not without challenges. It was not uncommon to encounter many
+            errors while typing code — broken layouts, elements that refused to align, and scripts that
+            simply would not run. But I learned that every problem has a solution. I stayed patient,
+            searched for answers, and fixed each bug one by one.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Reorientation -->
+    <div class="reorientation">
+      <p class="section-tag">Reorientation</p>
+      <p>
+        I am very pleased with the result. After so much hard work, my website is officially launched —
+        and it looks so professional. I feel more confident presenting myself and my work now.
+        This experience taught me that building something from scratch, no matter how difficult,
+        is one of the most rewarding things I have ever done.
+      </p>
+    </div>
+
+  </article>
+
+  <div class="footer-note">
+    <span>Nadir &nbsp;·&nbsp; English Recount Text Assignment</span>
+  </div>
+
+  <script>
+    // ── AUTO-HIDE NAVBAR (drawer / taskbar style)
+const nav = document.querySelector('nav');
+const navTrigger = document.getElementById('nav-trigger');
+let navHideTimer = null;
+
+function showNav() {
+  nav.classList.add('nav-visible');
+  clearTimeout(navHideTimer);
+  navHideTimer = setTimeout(() => {
+    nav.classList.remove('nav-visible');
+  }, 2400);
+}
+
+navTrigger.addEventListener('mouseenter', showNav);
+nav.addEventListener('mouseenter', () => {
+  clearTimeout(navHideTimer);
+  nav.classList.add('nav-visible');
+});
+nav.addEventListener('mouseleave', () => {
+  navHideTimer = setTimeout(() => nav.classList.remove('nav-visible'), 1000);
+});
+
+// Show nav briefly on page load
+showNav();
+  </script>
+
+</body>
+</html>
