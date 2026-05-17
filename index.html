@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Hafizh Adika — Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Wallpoet&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader-screen">
+    <div class="loader"></div>
+  </div>
+
+  <!-- NAME INPUT -->
+  <div id="name-screen">
+    <div class="name-box">
+      <div style="font-family: 'Wallpoet', f sans-serif; transform: translateY(-20px); font-size: 32px;">
+        <h2 class="">Masukkan Namamu</h2>
+      </div>
+      <input type="text" id="nameInput" placeholder="Nama kamu..." />
+    </div>
+    <div>
+      <button id="startBtn">Masuk</button>
+    </div>
+  </div>
+
+
+  <!-- GREETING -->
+  <div id="greeting"></div>
+
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- GLOBAL BG REVEAL -->
+  <div id="global-bg-reveal"></div>
+  <!-- NAV TRIGGER ZONE -->
+  <div id="nav-trigger"></div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#home" class="logo">AHA</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+
+  <!-- HOME -->
+  <section id="home" style="padding:0; max-width:100%;">
+    <div class="bg-main"></div>
+    <div class="bg-noise"></div>
+    <canvas id="glass-canvas"></canvas>
+
+    <div class="hero-content">
+      <!-- SVG Character -->
+      <div class="character-wrap">
+        <svg id="char-svg" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Body -->
+          <rect x="35" y="120" width="90" height="75" rx="12" fill="#1a3a5c" />
+
+          <!-- LEFT ARM -->
+          <g id="armL">
+            <rect x="26" y="125" width="14" height="40" rx="6" fill="#c8a882" />
+          </g>
+
+          <!-- RIGHT ARM -->
+          <g id="armR">
+            <rect x="120" y="125" width="14" height="40" rx="6" fill="#c8a882" />
+          </g>
+
+          <!-- Neck -->
+          <rect x="67" y="108" width="26" height="18" fill="#c8a882" />
+
+          <!-- Head -->
+          <ellipse cx="80" cy="90" rx="45" ry="48" fill="#d4aa88" />
+
+          <!-- Hair -->
+          <ellipse cx="80" cy="55" rx="46" ry="22" fill="#111" />
+          <ellipse cx="36" cy="72" rx="12" ry="20" fill="#111" />
+          <ellipse cx="124" cy="72" rx="12" ry="20" fill="#111" />
+          <rect x="34" y="48" width="92" height="18" fill="#111" />
+
+          <!-- Ears -->
+          <ellipse cx="35" cy="90" rx="7" ry="9" fill="#c8a882" />
+          <ellipse cx="125" cy="90" rx="7" ry="9" fill="#c8a882" />
+
+          <!-- Eyes -->
+          <circle id="pupilL" cx="64" cy="90" r="5" fill="#1a1a1a" />
+          <circle id="pupilR" cx="96" cy="90" r="5" fill="#1a1a1a" />
+
+          <!-- Shine -->
+          <circle id="shineL" cx="66" cy="88" r="1.5" fill="white" />
+          <circle id="shineR" cx="98" cy="88" r="1.5" fill="white" />
+
+          <!-- 🔥 KACAMATA -->
+          <!-- Left lens -->
+          <path d="M 50 83 L 78 83 L 78 91 Q 78 99 64 99 Q 50 99 50 91 Z" fill="rgba(0,255,106,0.05)" stroke="#1a1a1a"
+            stroke-width="2.5" />
+
+          <!-- Right lens -->
+          <path d="M 82 83 L 110 83 L 110 91 Q 110 99 96 99 Q 82 99 82 91 Z" fill="rgba(0,255,106,0.05)"
+            stroke="#1a1a1a" stroke-width="2.5" />
+
+          <!-- Bridge -->
+          <line x1="78" y1="88" x2="82" y2="88" stroke="#1a1a1a" stroke-width="2" />
+
+          <!-- Nose -->
+          <ellipse cx="80" cy="98" rx="4" ry="5" fill="#c09070" />
+
+          <!-- Mouth -->
+          <path d="M 70 110 Q 80 118 90 110" fill="none" stroke="#a07060" stroke-width="2" stroke-linecap="round" />
+
+        </svg>
+
+        <div id="speechBubble"></div>
+      </div>
+
+      <h1 class="hero-title">CREATIVE<br>WEB PORTFOLIO</h1>
+      <p class="hero-sub">UI/UX Designer &amp; Frontend Developer</p>
+      <p class="hero-desc">I designed and built this website from concept, design, to becoming a running website.</p>
+      <div class="hero-btns">
+        <a href="#work" class="btn-primary">See More</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE DIVIDER -->
+  <div class="marquee-section">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- items duplicated in JS -->
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="full-divider"></div>
+  <section id="about">
+    <div class="about-info reveal">
+      <div class="section-tag">About</div>
+      <h2>
+        Ali <br>
+        <em class="wallpoet">Hafizh</em> <br>
+        Adika
+      </h2>
+      <p>Welcome to my portofolio website i am an individualwith a strong passion and dedication in the filed of web
+        devolopment and graphic design. I want to showcase my website based on my experience and skills i gained during
+        my studies </p>
+      <!-- From Uiverse.io by cssbuttons-io -->
+      <a href="lain/rec.html" id="khusus" target="_blank">RECOUNT TEXT</a>
+    </div>
+
+
+    <div class="about-photo reveal reveal-delay-1">
+      <img src="image/dika.png" alt="">
+      <div class="about-photo-border"></div>
+    </div>
+
+    <div class="hover-skills-wrap reveal reveal-delay-2" style="padding-top:80px;">
+      <div class="section-tag">Skills</div>
+      <div class="hover-skills-list" style="margin-top:16px;">
+        <div class="hskill-item" data-pct="75">
+          <div class="hskill-inner">
+            <span class="hskill-name">HTML&CSS</span>
+            <span class="hskill-pct">75%</span>
+          </div>
+          <div class="hskill-bar-track">
+            <div class="hskill-bar-fill" style="--pct:75%"></div>
+          </div>
+        </div>
+        <div class="hskill-item" data-pct="50">
+          <div class="hskill-inner">
+            <span class="hskill-name">javascript</span>
+            <span class="hskill-pct">50%</span>
+          </div>
+          <div class="hskill-bar-track">
+            <div class="hskill-bar-fill" style="--pct:50%"></div>
+          </div>
+        </div>
+        <div class="hskill-item" data-pct="45">
+          <div class="hskill-inner">
+            <span class="hskill-name">phyton</span>
+            <span class="hskill-pct">45%</span>
+          </div>
+          <div class="hskill-bar-track">
+            <div class="hskill-bar-fill" style="--pct:82%"></div>
+          </div>
+        </div>
+        <div class="hskill-item" data-pct="40">
+          <div class="hskill-inner">
+            <span class="hskill-name">bootstrap</span>
+            <span class="hskill-pct">40%</span>
+          </div>
+          <div class="hskill-bar-track">
+            <div class="hskill-bar-fill" style="--pct:95%"></div>
+          </div>
+        </div>
+        <div class="hskill-item" data-pct="49">
+          <div class="hskill-inner">
+            <span class="hskill-name">Figma</span>
+            <span class="hskill-pct">49%</span>
+          </div>
+          <div class="hskill-bar-track">
+            <div class="hskill-bar-fill" style="--pct:72%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <div class="full-divider"></div>
+  <section id="work">
+    <div class="work-header reveal">
+      <div class="section-tag">Work</div>
+      <h2 class="work-title">Selected<br><em>Projects</em></h2>
+    </div>
+
+    <div class="work-grid-top reveal reveal-delay-1">
+      <div class="work-card">
+        <a href="https://alihafizhadika1-creator.github.io/ditproject/" target="_blank">
+          <div class="work-card-img">
+            <img src="image/p1.png" alt="">
+            <div class="work-num">01</div>
+            <div class="work-overlay"></div>
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-title">GO TO ditproject</div>
+        </a>
+        <div class="work-card-tag">UI/UX · Frontend Dev</div>
+      </div>
+    </div>
+    <div class="work-card">
+      <a href="https://alihafizhadika1-creator.github.io/SMK-Digirtal/" target="_blank">
+        <div class="work-card-img">
+          <img src="image/p2.png" alt="">
+          <div class="work-num">02</div>
+          <div class="work-overlay"></div>
+        </div>
+        <div class="work-card-info">
+          <div class="work-card-title">GO TO SMK Digital</div>
+      </a>
+      <div class="work-card-tag">UI Design · Figma</div>
+    </div>
+    </div>
+    <div class="work-card">
+      <a href="https://alihafizhadika1-creator.github.io/lingkungann/" target="_blank">
+        <div class="work-card-img">
+          <img src="image/p3.png" alt="">
+          <div class="work-num">03</div>
+          <div class="work-overlay"></div>
+        </div>
+        <div class="work-card-info">
+          <div class="work-card-title">GO TO ENVIRONTMENT</div>
+      </a>
+      <div class="work-card-tag">Frontend Dev</div>
+    </div>
+    </div>
+    </div>
+    <div class="work-grid-bottom reveal reveal-delay-2">
+      <div class="work-card">
+        <a href="https://alihafizhadika1-creator.github.io/Aot-/" target="_blank">
+        <div class="work-card-img">
+          <img src="image/P4.png" alt="">
+          <div class="work-num">04</div>
+          <div class="work-overlay"></div>
+        </div>
+        <div class="work-card-info">
+          <div class="work-card-title">Mobile App UI</div></a>
+          <div class="work-card-tag">Prototyping · Figma</div>
+        </div>
+      </div>
+      <div class="work-card">
+        <a href="https://alihafizhadika1-creator.github.io/sneakerhub/" target="_blank">
+          <div class="work-card-img">
+            <img src="image/p5.png">
+            <div class="work-num">05</div>
+            <div class="work-overlay"></div>
+          </div>
+          <div class="work-card-info">
+            <div class="work-card-title">GO TO sneakerhub</div>
+        </a>
+        <div class="work-card-tag">UI/UX · Frontend Dev</div>
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+  <!-- STORY -->
+  <div class="full-divider"></div>
+  <section id="story">
+    <div class="story-inner">
+      <div class="story-body">
+        <div class="section-tag reveal">Story</div>
+        <h2 class="story-title reveal reveal-delay-1">My<br><em>Journey</em></h2>
+        <div class="reveal reveal-delay-2">
+          <p>Perjalanan saya dimulai dari rasa penasaran yang sederhana — <strong>bagaimana sebuah website bisa terasa
+              begitu hidup?</strong> Dari sana, saya mulai menggali dunia desain dan coding, hari demi hari.</p>
+          <p>Saya belajar Figma untuk memvisualisasikan ide, kemudian belajar HTML, CSS, dan JavaScript untuk
+            mewujudkannya. Setiap project adalah sebuah pelajaran baru — tentang estetika, logika, dan yang paling
+            penting, tentang <strong>bagaimana pengguna merasakan sebuah produk.</strong></p>
+          <p>Kini saya fokus pada perpaduan antara UI/UX yang intuitif dengan frontend yang clean dan performatif. Bagi
+            saya, desain terbaik adalah yang tak terlihat — ia hanya terasa <strong>benar.</strong></p>
+          <p
+            style="margin-top:32px;font-family:'DM Mono',monospace;font-size:12px;color:rgba(240,240,240,0.3);letter-spacing:2px;">
+            — ALI HAFIZH ADIKA</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3">
+        <div class="story-video" id="storyVideo">
+
+          <video id="myStoryVideo" playsinline>
+            <source src="image/pembuka(1).mp4" type="video/mp4">
+          </video>
+
+          <img class="video-thumb" src="image/awal.png" alt="Story Thumbnail">
+
+          <div class="video-overlay" id="videoOverlay">
+            <div class="video-play">▶</div>
+            <div class="video-label">Play Story</div>
+          </div>
+
+        </div>
+        <div
+          style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(240,240,240,0.2);letter-spacing:1px;margin-top:4px;">
+          Upload video portrait here</div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- CONTACT ANCHOR -->
+  <div id="contact" class="full-divider"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-big">AHA</div>
+        <p>Ali Hafizh Adika<br>UI/UX Designer &amp;<br>Frontend Developer</p>
+        <div class="footer-status" style="margin-top:20px;">
+          <div class="status-dot"></div>
+          Available for work
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#story">Story</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <ul>
+          <li><a href="#">Email</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Ali Hafizh Adika. All rights reserved.</p>
+      <p style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(240,240,240,0.2);">DESIGNED &amp; BUILT BY AHA
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js">
+  </script>
+</body>
+
+</html>
