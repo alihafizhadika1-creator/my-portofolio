@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Get In Touch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Background -->
+  <div class="grid-bg"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="page-wrap">
+
+    <!-- NAV -->
+    <nav>
+      <div class="logo">AHA</div>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#work">Work</a></li>
+        <li><a href="../index.html#story">Story</a></li>
+        <li><a href="#" class="active">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-tag">Let's get in touch</div>
+      <p class="hero-sub">Punya proyek atau ide yang ingin kita diskusikan? Kirim pesan dan kita mulai percakapan.</p>
+    </section>
+
+    <div class="contact-grid">
+
+      <div class="info-panel">
+
+        <div class="info-card">
+          <div class="info-card-label">Status</div>
+          <div class="info-card-value">
+            <span class="status-dot"></span>Tersedia untuk proyek baru
+          </div>
+          <div class="info-card-sub">Response time: &lt; 24 jam</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-label">Email</div>
+          <div class="info-card-value">ali.p25006@satamail.my.id</div>
+          <div class="info-card-sub">Untuk pertanyaan umum & kolaborasi</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-label">Telepon</div>
+          <div class="info-card-value">+62 822-3648-1456</div>
+          <div class="info-card-sub">Senin – Jumat, 09.00 – 17.00 WIB</div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-label">Sosial Media</div>
+          <div class="social-row">
+            <a href="https://www.instagram.com/gol.d_dika?igsh=MWhjbDRpNW5jYjVobg==" target="_blank" class="social-icon-btn" title="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://github.com/" target="_blank" class="social-icon-btn" title="GitHub">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://wa.me/" target="_blank" class="social-icon-btn" title="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="https://tiktok.com/" target="_blank" class="social-icon-btn" title="TikTok">
+              <i class="bi bi-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div style="font-size:11px; color:var(--gray-light); line-height:2; letter-spacing:0.5px;">
+          Semua informasi yang dikirimkan akan dijaga kerahasiaannya dan tidak akan dibagikan kepada pihak ketiga manapun.
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="form-panel">
+        <div class="form-title">Kirim Pesan</div>
+        <div class="form-desc">Isi formulir di bawah ini dan kami akan menghubungi kamu secepatnya.</div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Nama Depan</label>
+            <input type="text" placeholder="John" id="fname"/>
+          </div>
+          <div class="field">
+            <label>Nama Belakang</label>
+            <input type="text" placeholder="Doe" id="lname"/>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Alamat Email</label>
+          <input type="email" placeholder="john@example.com" id="email"/>
+        </div>
+
+        <div class="field">
+          <label>Topik</label>
+          <select id="topic">
+            <option value="" disabled selected>— Pilih topik —</option>
+            <option>Kolaborasi Proyek</option>
+            <option>Pertanyaan Umum</option>
+            <option>Penawaran Harga</option>
+            <option>Partnership</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Pesan</label>
+          <textarea placeholder="Ceritakan proyek atau ide kamu di sini..." id="message"></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="handleSubmit()">
+          <span>Kirim Pesan</span>
+          <span class="arrow">→</span>
+        </button>
+
+        <div class="success-msg" id="successMsg">
+           &nbsp;Membuka aplikasi email kamu untuk mengirim pesan...
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© 2026 <span>Brand.</span> All rights reserved.</div>
+      <div>Made with <span>♥</span> tengaaran city</div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+
+    function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    // Hover effects on interactive elements
+    document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '18px';
+        cursor.style.height = '18px';
+        cursor.style.background = '#fff';
+        ring.style.width = '52px';
+        ring.style.height = '52px';
+        ring.style.opacity = '0.3';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '10px';
+        cursor.style.height = '10px';
+        cursor.style.background = 'var(--green)';
+        ring.style.width = '36px';
+        ring.style.height = '36px';
+        ring.style.opacity = '0.5';
+      });
+    });
+
+    // Form submit → mailto
+    function handleSubmit() {
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const topic = document.getElementById('topic').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!fname || !email || !message) {
+        const btn = document.querySelector('.submit-btn');
+        btn.style.outline = '1px solid #ff4444';
+        setTimeout(() => { btn.style.outline = ''; }, 800);
+        return;
+      }
+
+      // Ganti dengan email kamu di sini ↓
+      const targetEmail = 'ali.p25006@satamail.my.id';
+
+      const subject = encodeURIComponent(`[Kontak] ${topic || 'Pesan Baru'} – dari ${fname} ${lname}`);
+      const body = encodeURIComponent(
+        `Nama: ${fname} ${lname}\nEmail: ${email}\nTopik: ${topic || '-'}\n\nPesan:\n${message}`
+      );
+
+      window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+
+      document.getElementById('successMsg').classList.add('show');
+
+      ['fname','lname','email','topic','message'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el.tagName === 'SELECT') el.selectedIndex = 0;
+        else el.value = '';
+      });
+    }
+  </script>
+
+</body>
+</html>
