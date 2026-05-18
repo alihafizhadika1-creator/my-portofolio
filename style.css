@@ -1226,7 +1226,6 @@ display: inline-block;
   
   backdrop-filter: blur(10px);
 
-  /* ⭐ INI YANG PENTING */
   max-width: 180px;
   white-space: normal;
   word-wrap: break-word;
