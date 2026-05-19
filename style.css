@@ -1439,6 +1439,28 @@ footer {
     aspect-ratio: 16/10;
   }
 
+    .work-card {
+    aspect-ratio: auto;
+    min-height: 280px;
+  }
+
+  .work-card-info {
+    padding: 14px 16px 20px;
+  }
+
+  .work-card-title {
+    font-size: 13px;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  .work-card-tag {
+    font-size: 9px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+  }
+
+
   .footer-inner {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
